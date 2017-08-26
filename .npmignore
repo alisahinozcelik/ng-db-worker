@@ -3,6 +3,5 @@ documentation/
 src/
 tasks/
 playground/
-package-lock.json
 npm-debug.log
 .tmp/
