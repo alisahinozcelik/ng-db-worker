@@ -1,7 +1,7 @@
 import { DB_MESSAGES, IGetMessage } from "./interfaces";
 import { DbService } from "./db.service";
 
-class Store<T> {
+export class Store<T> {
 	private ready: Promise<void>;
 
 	constructor(
@@ -39,5 +39,3 @@ class Store<T> {
 			.then(res => res.value);
 	}
 }
-
-export default Store;

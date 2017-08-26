@@ -19,22 +19,6 @@ export interface IObject {
 	[key: string]: any;
 }
 
-export interface IUpgradeNeededMessage {
-	upgradeNeeded: boolean;
-}
-
-export interface IDbConnectionIndex {
-	index: string;
-	unique: boolean;
-}
-
-export interface IDbConnectionOptions {
-	name: string;
-	keyPath: string;
-	autoIncrement?: boolean;
-	indexes?: IDbConnectionIndex[]
-}
-
 export interface IOpenDBMessageData {
 	name: string;
 	version: number;

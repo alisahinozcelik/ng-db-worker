@@ -2,16 +2,15 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 const script: string = require("./worker").default;
-import { IWorkerMessageResponse, IUpgradeNeededMessage, IDbConnectionOptions, DB_MESSAGES,
-					IObject, IWorkerMessage, IOpenDBMessageData } from "./interfaces";
-import Store from "./store";
+import { IWorkerMessageResponse, DB_MESSAGES, IObject, IWorkerMessage, IOpenDBMessageData } from "./interfaces";
+import { Store } from "./store";
 
 @Injectable()
 export class DbService {
 	private key = Symbol("DB MESSAGE KEY");
 	private dbWorker: Worker;
 	private workerMessages: Observable<IWorkerMessageResponse>;
-	public dbReady: Promise<IUpgradeNeededMessage>;
+	public dbReady: Promise<any>;
 
 	constructor(
 		name: string,
@@ -28,7 +27,7 @@ export class DbService {
 			};
 		});
 
-		this.dbReady = this.sendMessage<IUpgradeNeededMessage, IOpenDBMessageData>(DB_MESSAGES.OPEN, {
+		this.dbReady = this.sendMessage<{}, IOpenDBMessageData>(DB_MESSAGES.OPEN, {
 			version,
 			storeNames,
 			name,
