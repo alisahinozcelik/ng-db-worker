@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
-const script: string = require("./worker");
+const script: string = require("./worker").default;
 import { IWorkerMessageResponse, IUpgradeNeededMessage, IDbConnectionOptions, DB_MESSAGES,
 					IObject, IWorkerMessage, IOpenDBMessageData } from "./interfaces";
 import Store from "./store";
