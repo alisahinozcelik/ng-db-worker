@@ -7,7 +7,6 @@ import { Store } from "./store";
 
 @Injectable()
 export class DbService {
-	private key = Symbol("DB MESSAGE KEY");
 	private dbWorker: Worker;
 	private workerMessages: Observable<IWorkerMessageResponse>;
 	public dbReady: Promise<any>;
@@ -42,11 +41,11 @@ export class DbService {
 	): Promise<IWorkerMessageResponse & T & U> {
 
 		const id = Symbol("MESSAGE ID");
-		const messageObject: IWorkerMessage & IObject = Object.assign(data, {[this.key]: id, message})
+		const messageObject: IWorkerMessage & IObject = Object.assign(data, {__ndw_mid__: id, message})
 		this.dbWorker.postMessage(messageObject);
 
 		return this.workerMessages
-			.filter(message => message[this.key] === id)
+			.filter(message => message.__ndw_mid__ === id)
 			.first()
 			.toPromise()
 			.then((res: IWorkerMessageResponse & T & U) => {

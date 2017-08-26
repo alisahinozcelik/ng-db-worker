@@ -9,9 +9,10 @@ export enum DB_MESSAGES {
 
 export interface IWorkerMessage {
 	message: DB_MESSAGES;
+	__ndw_mid__: symbol;
 }
 
-export interface IWorkerMessageResponse {
+export interface IWorkerMessageResponse extends IWorkerMessage{
 	success: boolean;
 }
 
