@@ -1,6 +1,6 @@
 {
   "name": "ng-db-worker",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Angular IndexedDb Web Worker Service",
   "main": "dist/index.js",
   "scripts": {
@@ -13,11 +13,18 @@
     "url": "https://github.com/alisahinozcelik/ng-db-worker.git"
   },
   "keywords": [
-    "angular", "typescript", "service", "indexed", "db", "web", "worker"
+    "angular",
+    "typescript",
+    "service",
+    "indexed",
+    "db",
+    "web",
+    "worker"
   ],
   "author": "alisahinozcelik@gmail.com",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.74",
     "app-root-path": "^2.0.1",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
@@ -35,6 +42,7 @@
   },
   "dependencies": {
     "@angular/core": "^4.3.6",
+    "lodash": "^4.17.4",
     "rxjs": "^5.4.3"
   }
 }

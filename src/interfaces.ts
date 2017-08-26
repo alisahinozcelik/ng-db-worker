@@ -9,7 +9,7 @@ export enum DB_MESSAGES {
 
 export interface IWorkerMessage {
 	message: DB_MESSAGES;
-	__ndw_mid__: symbol;
+	__ndw_mid__: string;
 }
 
 export interface IWorkerMessageResponse extends IWorkerMessage{
