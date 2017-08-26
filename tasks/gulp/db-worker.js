@@ -29,7 +29,7 @@ gulp.task("compile:db-worker", [], () => {
 
 gulp.task("parse:db-worker", [], () => {
 	const str = fs.readFileSync(path + "/.tmp/worker.js", "utf8");
-	const file = "const script = \`" + str + "\`; export default script;";
+	const file = "const script = \`" + str.replace(/\\n|\\t/g, "") + "\`; export default script;";
 	fs.writeFileSync(path + "/.tmp/src/worker.ts", file, "utf8");
 });
 
